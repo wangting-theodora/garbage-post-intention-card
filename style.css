@@ -8,3 +8,5 @@
 main{background:rgba(250,248,239,.88)}footer{background:#faf8efcc}header{background:#faf8ef66}
 
 .usage-guide{margin:-12px 0 32px;border-top:1px solid #cbd3bd;border-bottom:1px solid #cbd3bd;padding:15px 0;color:#547146;font-size:13px;line-height:1.9}.usage-guide summary{cursor:pointer;font-weight:600}.usage-guide ol{padding-left:22px;margin:12px 0}.usage-guide li{margin:6px 0}.usage-guide a{color:#244f3c;text-underline-offset:4px}.example-notice{font-size:13px;line-height:1.9;padding:14px 18px;margin:0 0 26px;background:#e5ecd8b3;border-left:3px solid #839d70}
+
+.plan-handoff{margin-top:20px;padding:18px;background:#e4ebd780;border:1px solid #cbd3bd;border-radius:8px}.plan-handoff button{width:100%}.plan-handoff p,.plan-handoff a{font-size:12px;line-height:1.8;color:#71806a}.plan-handoff button:disabled{opacity:.5;cursor:default}
