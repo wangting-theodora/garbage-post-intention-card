@@ -3,7 +3,7 @@
  function wrap(c,t,w){let line='',lines=[];for(const ch of t){if(ch==='\n'){lines.push(line);line='';continue}if(c.measureText(line+ch).width>w&&line){lines.push(line);line=ch}else line+=ch}if(line)lines.push(line);return lines}
  function draw(canvas,d,demo=false){canvas.width=1080;let c=canvas.getContext('2d');
  c.font='32px '+font;const feeling=(d.feeling||'').trim(),fl=wrap(c,feeling,920);
- c.font='600 32px '+font;const pl=wrap(c,'发布平台 · '+(d.platform||'尚未设置'),872),ph=Math.max(82,pl.length*45+32);
+ c.font='600 32px '+font;const pl=wrap(c,'本次发布 · '+(d.platform||'未填写平台'),872),ph=Math.max(82,pl.length*45+32);
  c.font='600 34px '+font;const ql=wrap(c,d.quote||'',880);
  const sy=333+ph+65,sv=sy+90,by=sv+55,ny=by+78,cy=d.days?ny+44:ny,fy=cy+90,bodyY=fy+65,qy=feeling?bodyY+fl.length*48+92:cy+160;
  canvas.height=Math.max(1320,qy+ql.length*53+230);c=canvas.getContext('2d');const H=canvas.height;

@@ -4,3 +4,5 @@ header a{color:var(--ink)}.plan-import{border:1px solid var(--line);background:#
 
 /* Botanical edges stay outside the poster body; keep the interface legible. */
 body{background:linear-gradient(#faf8efda,#faf8efed),url('../assets/botanical-paper.png') center/cover fixed}#quote{text-align:center}
+
+#report-platforms{margin:26px 0 4px;padding:18px;border:1px solid var(--line);border-radius:12px;background:#fffdf6b0}#report-platforms legend{padding:0 5px;font-size:16px;font-weight:600}.platform-options{display:flex;gap:10px;flex-wrap:wrap}.platform-options label{display:flex;align-items:center;gap:8px;margin:0;padding:10px 13px;border:1px solid var(--line);border-radius:24px;font-size:14px;cursor:pointer;background:#faf8ef}.platform-options label:has(input:checked){background:#e2ecd6;border-color:#6d9356;font-weight:600}.platform-options input{width:17px;height:17px;margin:0;padding:0;accent-color:#244f3c}.platform-options span{overflow-wrap:anywhere}#report-platforms .hint{margin-bottom:0}
