@@ -9,8 +9,9 @@
  function total(s){return s.correction?s.correction.total+s.records.slice(s.correction.recordCount).reduce((n,r)=>n+r.amount,0):s.baseline+s.records.reduce((n,r)=>n+r.amount,0)}
  function correctTotal(s,value){validate(s);const n=Number(value);if(value===''||!Number.isSafeInteger(n)||n<0||n>10001000000)throw Error('累计条数需要是有效的非负整数。');return validate({...s,correction:{total:n,recordCount:s.records.length}})}
  function canUndo(s){return s.records.length>(s.correction?.recordCount||0)}
+ function clearReports(s){validate(s);return create(s.nickname,s.target,0,s.platform,s.days)}
  function add(s,amount,feeling='',date=new Date().toISOString(),selected){validate(s);const planned=platforms(s.platform);if(selected===undefined)selected=planned.length===1?planned:[];checkPlatforms(selected);if(planned.length&&!selected.length)throw Error('请勾选这次实际发布的平台。');if(selected.some(p=>!planned.includes(p)))throw Error('本次平台不在计划里，请先修改发布计划。');const before=total(s);const next=validate({...s,records:[...s.records,{amount:integer(amount,1),feeling:feeling.trim(),date,platforms:[...selected]}]});const after=total(next);return {state:next,entry:{nickname:next.nickname,platform:selected.join('、'),target:next.target,days:next.days||null,amount:integer(amount,1),total:after,count:next.records.length,feeling:feeling.trim(),date,quote:quotes[(next.records.length-1)%quotes.length],milestone:Math.min(4,Math.floor(after/next.target*4))>Math.min(4,Math.floor(before/next.target*4))}}}
  function undo(s){validate(s);return canUndo(s)?{...s,records:s.records.slice(0,-1)}:s}
  function restore(raw){let s;try{s=JSON.parse(raw)}catch{throw Error('无法读取这份备份，请选择导出的JSON文件。')}return validate(s)}
- return {create,validate,total,add,undo,restore,quotes,platforms,correctTotal,canUndo};
+ return {create,validate,total,add,undo,restore,quotes,platforms,correctTotal,canUndo,clearReports};
 });
